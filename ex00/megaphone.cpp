@@ -1,26 +1,32 @@
 #include <iostream>
 #include <string>
-#include <string_view>
 #include <cctype>
+#define string std::string
+#define Write(x) std::cout << x
+#define var auto
+#define c_char static_cast<char>
+
+inline char ToChar(int i) { return static_cast<char>(i); }
+inline char ToUnsignedChar(int i) { return static_cast<unsigned char>(i); }
 
 int main(int argc, char **argv)
 {
     if (argc == 1)
     {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+        Write("* LOUD AND UNBEARABLE FEEDBACK NOISE *\n");
         return 0;
     }
 
     for (int i = 1; i < argc; ++i)
     {
-        std::string str(argv[i]);
+        string str(argv[i]);
         
         for (char c : str)
         {
-            std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(c)));
+            Write(ToChar(std::toupper(ToUnsignedChar(c))));
         }
-		std::cout << " ";
+		Write(" ");
     }
-    std::cout << std::endl;
+    Write("\n");
     return 0;
 }
