@@ -13,13 +13,13 @@ int main(int argc, char **argv)
 {
     if (argc == 1)
     {
-        Write("* LOUD AND UNBEARABLE FEEDBACK NOISE *\n");
+		Write("* LOUD AND UNBEARABLE FEEDBACK NOISE *\n");
         return 0;
     }
 
     for (int i = 1; i < argc; ++i)
     {
-        string str(argv[i]);
+		string str(argv[i]);
         
         for (char c : str)
         {
