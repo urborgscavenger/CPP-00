@@ -5,16 +5,12 @@
 #include <cstdlib>
 
 // C#-style convenience macros (similar to megaphone.cpp)
-#define string std::string
-#define Write(x) std::cout << x
-#define var auto
-#define c_char static_cast<char>
 
 inline char ToChar(int i) { return static_cast<char>(i); }
 inline char ToUnsignedChar(int i) { return static_cast<unsigned char>(i); }
 
 static void ExitWithNewline(int code) {
-    Write(std::endl);
+    Write(newLine);
     std::exit(code);
 }
 
@@ -31,7 +27,7 @@ void PhoneBook::addContact() {
         Write("First Name: ");
         if (!std::getline(std::cin, input)) ExitWithNewline(0);
         if (input.empty()) {
-            Write(errmsg) << std::endl;
+            Write(errmsg) << newLine;
             continue;
         }
         newContact.setFirstName(input);
@@ -42,7 +38,7 @@ void PhoneBook::addContact() {
         Write("Last Name: ");
         if (!std::getline(std::cin, input)) ExitWithNewline(0);
         if (input.empty()) {
-            Write(errmsg) << std::endl;
+            Write(errmsg) << newLine;
             continue;
         }
         newContact.setLastName(input);
@@ -53,7 +49,7 @@ void PhoneBook::addContact() {
         Write("Nickname: ");
         if (!std::getline(std::cin, input)) ExitWithNewline(0);
         if (input.empty()) {
-            Write(errmsg) << std::endl;
+            Write(errmsg) << newLine;
             continue;
         }
         newContact.setNickname(input);
@@ -64,7 +60,7 @@ void PhoneBook::addContact() {
         Write("Phone: ");
         if (!std::getline(std::cin, input)) ExitWithNewline(0);
         if (input.empty()) {
-            Write(errmsg) << std::endl;
+            Write(errmsg) << newLine;
             continue;
         }
         newContact.setPhoneNumber(input);
@@ -75,7 +71,7 @@ void PhoneBook::addContact() {
         Write("Darkest Secret: ");
         if (!std::getline(std::cin, input)) ExitWithNewline(0); // Einfache Validierung
         if (input.empty()) {
-            Write(errmsg) << std::endl;
+            Write(errmsg) << newLine;
             continue;
         }
         newContact.setDarkestSecret(input);
@@ -96,15 +92,15 @@ string SetFormat(string str) {
 }
 
 void PhoneBook::searchContacts() const {
-    Write("|") << std::setw(10) << "Index"
-              << "|" << std::setw(10) << "First Name"
-              << "|" << std::setw(10) << "Last Name"
-              << "|" << std::setw(10) << "Nickname" << "|" << std::endl;
+    Write("|") << setWidth(10) << "Index"
+              << "|" << setWidth(10) << "First Name"
+              << "|" << setWidth(10) << "Last Name"
+              << "|" << setWidth(10) << "Nickname" << "|" << newLine;
 
     for (int i = 0; i < _totalCount; i++) {
-        Write("|") << std::setw(10) << i
-                  << "|" << std::setw(10) << SetFormat(_contacts[i].getFirstName())
-                  << "|" << std::setw(10) << SetFormat(_contacts[i].getLastName())
-                  << "|" << std::setw(10) << SetFormat(_contacts[i].getNickname()) << "|" << std::endl;
+        Write("|") << setWidth(10) << i
+                  << "|" << setWidth(10) << SetFormat(_contacts[i].getFirstName())
+                  << "|" << setWidth(10) << SetFormat(_contacts[i].getLastName())
+                  << "|" << setWidth(10) << SetFormat(_contacts[i].getNickname()) << "|" << newLine;
     }
 }

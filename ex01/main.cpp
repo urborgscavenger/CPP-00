@@ -3,22 +3,22 @@
 #include <string>
 
 static void exit_with_newline(int code) {
-    std::cout << std::endl;
+    Write(newLine);
     std::exit(code);
 }
 
 int main(int argc, char **argv) {
     PhoneBook book; 
-    std::string command;
+    string command;
 
     if(argc != 1)
     {
-        std::cout << "No arguments expected" << std::endl;
+        WriteLine("No arguments expected");
         return 1;
     }
     (void)argv;
     while (true) {
-        std::cout << "Enter command (ADD, SEARCH, EXIT): ";
+        Write("Enter command (ADD, SEARCH, EXIT): ");
         if (!std::getline(std::cin, command)) 
             exit_with_newline(0);
 
