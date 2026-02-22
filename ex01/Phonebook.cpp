@@ -20,7 +20,6 @@ void PhoneBook::addContact() {
     string errmsg = "cannot be empty. Please try again.";
     Contact newContact;
 
-    // Prompt each field and repeat until a non-empty value is provided
     while (true) {
         Write("First Name: ");
         if (!std::getline(std::cin, input)) ExitWithNewline(0);
@@ -67,7 +66,7 @@ void PhoneBook::addContact() {
 
     while (true) {
         Write("Darkest Secret: ");
-        if (!std::getline(std::cin, input)) ExitWithNewline(0); // Einfache Validierung
+        if (!std::getline(std::cin, input)) ExitWithNewline(0);
         if (input.empty()) {
             Write(errmsg) << newLine;
             continue;
@@ -76,13 +75,11 @@ void PhoneBook::addContact() {
         break;
     }
 
-    // Kontakt im Array speichern (Circular Index)
     _contacts[_index % 8] = newContact;
     _index++;
     if (_totalCount < 8) _totalCount++;
 }
 
-// Hilfsfunktion für die 10-Zeichen-Regel (PascalCase)
 string SetFormat(string str) {
     if (str.length() > 10)
         return str.substr(0, 9) + ".";
