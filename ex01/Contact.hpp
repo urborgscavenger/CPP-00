@@ -11,7 +11,6 @@ typedef std::string string;
 
 class Contact {
 private:
-    // Alles private – wie in der Aufgabe verlangt
     string _firstName;
     string _lastName;
     string _nick;
@@ -29,7 +28,6 @@ public:
     void setPhoneNumber(string str);
     void setDarkestSecret(string str);
 
-    // Getter (const, weil sie das Objekt nicht verändern)
     string getFirstName() const;
     string getLastName() const;
     string getNickname() const;

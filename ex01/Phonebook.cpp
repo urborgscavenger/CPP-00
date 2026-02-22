@@ -4,8 +4,6 @@
 #include <string>
 #include <cstdlib>
 
-// C#-style convenience macros (similar to megaphone.cpp)
-
 inline char ToChar(int i) { return static_cast<char>(i); }
 inline char ToUnsignedChar(int i) { return static_cast<unsigned char>(i); }
 
